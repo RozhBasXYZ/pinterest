@@ -13,7 +13,7 @@ class Pinterest:
 		self.scrol = int(input("[!] berapa kali ingin scrol ke bawah?\n[!] note semakin dikit semakin akurat\n[?] input : ")); print("-"*20)
 		print("[!] dump di mulai tekan ctrl+c untuk stop dump"); print("-"*20)
 		self.awal = ses.get('https://id.pinterest.com/resource/UserExperienceResource/get/?source_url=/search/pins/?rs=typed&q='+self.cari+'&data={"options":{"placement_ids":[29],"extra_context":{"search_query":"'+urllib.parse.unquote(self.cari)+'"}},"context":{}}&_='+self.now).text
-		self.head = {"User-Agent": "Mozilla/5.0 (Linux; Android 11; 220333QAG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36", "X-APP-VERSION": "ba6e535", "X-Pinterest-AppState": "active", "X-Pinterest-ExperimentHash": re.findall('"experiment_hash":"(.*?)",',str(self.awal))[0], "X-Pinterest-PWS-Handler": "www/search/[scope].js", "X-Pinterest-Source-Url": "/search/pins/?rs=typed&q="+self.cari, "X-Requested-With": "XMLHttpRequest", "Accept":"application/json, text/javascript, */*, q=0.01"}
+		self.head = {"User-Agent": "Mozilla/5.0 (Linux; Android 11; 220333QAG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36", "X-APP-VERSION": "ba6e535", "X-Pinterest-AppState": "active", "X-Pinterest-PWS-Handler": "www/search/[scope].js", "X-Pinterest-Source-Url": "/search/pins/?rs=typed&q="+self.cari, "X-Requested-With": "XMLHttpRequest", "Accept":"application/json, text/javascript, */*, q=0.01"}
 		try: self.get_source()
 		except KeyboardInterrupt: Pinterest().simpan_foto()
 		self.simpan_foto()
