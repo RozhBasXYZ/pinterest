@@ -21,7 +21,7 @@ class Pinterest:
 	def simpan_foto(self):
 		print("\r"); print("-"*20)
 		if input(f"\r[!] telah terkumpul total {len(self.tampung)} link foto\n[!] ingin simpan menjadi gambar [Y/N]\n[?] pilih : ") in ["n","N","NO","No","no"]:
-			for _ in tampung: open(f"/sdcard/ROZHBAS/{urllib.parse.unquote(self.cari)}{str(time.time()).replace('.','')[:-4]}.txt","w").write(_+"\n")
+			for _ in tampung: open(f"/sdcard/ROZHBAS/{urllib.parse.unquote(self.cari)}{str(time.time()).replace('.','')[:-4]}.txt","a+").write(_+"\n")
 			exit(f"[!] link tersimpan di folder internal ROZHBAS")
 		else: print("-"*20)
 		file = input("[?] harap masukan nama untuk file\n[!] cukup nama saja contoh 'FotoAbg'\n[?] nama  : "); print("-"*20)
