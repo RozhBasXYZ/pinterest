@@ -1,5 +1,5 @@
-# Auto Scraping Pinterest Image / Url
-# By RozhBasXYZ ( FREE )
+Author = "RozhBasXYZ"
+GitHub = "github.com/RozhBasXYZ"
 
 import requests, re, time, urllib.parse, json, os
 ses = requests.Session()
@@ -21,7 +21,8 @@ class Pinterest:
 	def simpan_foto(self):
 		print("\r"); print("-"*20)
 		if input(f"\r[!] telah terkumpul total {len(self.tampung)} link foto\n[!] ingin simpan menjadi gambar [Y/N]\n[?] pilih : ") in ["n","N","NO","No","no"]:
-			for _ in tampung: open(f"/sdcard/ROZHBAS/{urllib.parse.unquote(self.cari)}{str(time.time()).replace('.','')[:-4]}.txt","a+").write(_+"\n")
+			isi = '\n'.join(_ for _ in tampung)
+			open(f"/sdcard/ROZHBAS/{urllib.parse.unquote(self.cari)}{str(time.time()).replace('.','')[:-4]}.txt","a+").write(isi)
 			exit(f"[!] link tersimpan di folder internal ROZHBAS")
 		else: print("-"*20)
 		file = input("[?] harap masukan nama untuk file\n[!] cukup nama saja contoh 'FotoAbg'\n[?] nama  : "); print("-"*20)
@@ -85,3 +86,4 @@ if __name__ == "__main__":
 	print(f""" ______ _______ _______ ______ 
 |   __ \   _   |     __|   __ \ | rozh auto \n|      <       |__     |    __/ | scraping
 |___|__|___|___|_______|___|    | pinterest\n{'-'*33}"""); Pinterest()
+	
